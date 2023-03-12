@@ -1,0 +1,55 @@
+{
+    "basic_setting": "---------------------basic_setting---------------------",
+    "gui":false,
+    "workspace": "D:/Plutonium/Manhattan/Info0",
+    "sensor_config": {
+        "camera_fps": "K4A_FRAMES_PER_SECOND_5",
+        "color_format": "K4A_IMAGE_FORMAT_COLOR_MJPG",
+        "color_resolution": "K4A_COLOR_RESOLUTION_720P",
+        "depth_delay_off_color_usec": "0",
+        "depth_format":"K4A_IMAGE_FORMAT_DEPTH16",
+        "depth_mode": "K4A_DEPTH_MODE_WFOV_2X2BINNED",
+        "disable_streaming_indicator": "false",
+        "ir_format":"K4A_IMAGE_FORMAT_IR16",
+        "subordinate_delay_off_master_usec": "0",
+        "synchronized_images_only": "false",
+        "wired_sync_mode": "K4A_WIRED_SYNC_MODE_STANDALONE"
+    },
+    "byhand": false,
+    "distance": 1000.0,
+    "write_color_and_depth": true,
+    "fps": 30,
+    "counts": 1,
+    "advanced_setting": "-------------------advanced_setting-------------------",
+    "Filter": {
+        "preprocess": {
+            "KDTreeSearchParamHybrid": {
+                "radius": 0.05,
+                "max_nn": 30
+            },
+            "remove_statistical_outlier": {
+                "nb_neighbors": 50,
+                "std_ratio": 0.02
+            },
+            "segment_plane": {
+                "distance_threshold": 0.01,
+                "ransac_n": 5,
+                "num_iterations": 10000
+            }
+        },
+        "get_object":{
+            "remove_statistical_outlier":{
+                "nb_neighbors": 40,
+                "std_ratio": 0.5
+            },
+            "remove_radius_outlier":{
+                "nb_points":50, 
+                "radius":0.02
+            },
+            "cluster_dbscan":{
+                "esp":0.04, 
+                "min_points":300
+            }
+        }
+    }
+}
